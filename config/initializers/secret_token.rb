@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-GroupCamp::Application.config.secret_key_base = 'b002cfe5c713c027d7eec05c7dd31fcc3260f337e963496bd06c830cd8d15b20e992658043c833fc0da8369e0ffa07a16e993e5251d2b06d960e687fe76bddd1'
+GroupCamp::Application.config.secret_token = ENV['SECRET_KEY_BASE']

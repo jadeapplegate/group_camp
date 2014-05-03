@@ -77,4 +77,7 @@ GroupCamp::Application.configure do
 
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
+
+ # force the app to use SSL in production.
+  config.force_ssl = true
 end
