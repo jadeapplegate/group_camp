@@ -7,6 +7,8 @@ GroupCamp::Application.routes.draw do
 
   resources :sessions
 
+  root 'home#index'
+
   get '/signup', to: 'users#new'
   delete '/signout', to: 'sessions#destroy'
   get'/signin', to: 'sessions#new'
