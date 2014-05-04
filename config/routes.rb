@@ -1,4 +1,6 @@
 GroupCamp::Application.routes.draw do
+  resources :guests
+
   resources :trips
 
   resources :users
