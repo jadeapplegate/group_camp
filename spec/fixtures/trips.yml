@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  arrival: MyString
+  departure: MyString
+  camp_info: MyText
+  share_url: MyString
+
+two:
+  arrival: MyString
+  departure: MyString
+  camp_info: MyText
+  share_url: MyString
