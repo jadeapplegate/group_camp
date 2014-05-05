@@ -10,6 +10,8 @@ GroupCamp::Application.routes.draw do
 
   resources :users, only: [:new, :create]
 
+  get 'trip/search', to: 'trips#search'
+
   get '/trip/results', to: 'trips#results'
 
   get '/trip/details', to: 'trips#details'
@@ -20,7 +22,6 @@ GroupCamp::Application.routes.draw do
 
   # every action below is a method in the corresponding controller. Ony the GET actions will have views (index, show, new, edit)
 
-#       Prefix Verb   URI Pattern               Controller#Action
 #         root GET    /                         home#index
 #     sessions POST   /sessions(.:format)       sessions#create
 #  new_session GET    /sessions/new(.:format)   sessions#new
@@ -30,6 +31,7 @@ GroupCamp::Application.routes.draw do
 #       signin GET    /signin(.:format)         sessions#new
 #        users POST   /users(.:format)          users#create
 #     new_user GET    /users/new(.:format)      users#new
+#  trip_search GET    /trip/search(.:format)    trips#search
 # trip_results GET    /trip/results(.:format)   trips#results
 # trip_details GET    /trip/details(.:format)   trips#details
 #        trips GET    /trips(.:format)          trips#index
