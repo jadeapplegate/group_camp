@@ -1,24 +1,9 @@
 class GuestsController < ApplicationController
   before_action :set_guest, only: [:show, :edit, :update, :destroy]
-
-  # GET /guests
-  # GET /guests.json
-  def index
-    @guests = Guest.all
-  end
-
-  # GET /guests/1
-  # GET /guests/1.json
-  def show
-  end
-
+  
   # GET /guests/new
   def new
     @guest = Guest.new
-  end
-
-  # GET /guests/1/edit
-  def edit
   end
 
   # POST /guests
@@ -34,30 +19,6 @@ class GuestsController < ApplicationController
         format.html { render action: 'new' }
         format.json { render json: @guest.errors, status: :unprocessable_entity }
       end
-    end
-  end
-
-  # PATCH/PUT /guests/1
-  # PATCH/PUT /guests/1.json
-  def update
-    respond_to do |format|
-      if @guest.update(guest_params)
-        format.html { redirect_to @guest, notice: 'Guest was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: 'edit' }
-        format.json { render json: @guest.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # DELETE /guests/1
-  # DELETE /guests/1.json
-  def destroy
-    @guest.destroy
-    respond_to do |format|
-      format.html { redirect_to guests_url }
-      format.json { head :no_content }
     end
   end
 
