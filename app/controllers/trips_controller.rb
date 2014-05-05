@@ -1,5 +1,5 @@
 class TripsController < ApplicationController
-  before_action :set_trip, only: [:show, :edit, :update, :destroy]
+  # before_action :set_trip, only: [:show, :edit, :update, :destroy]
 
   # GET /trips
   def index
@@ -20,7 +20,6 @@ class TripsController < ApplicationController
   end
 
   # POST /trips
-  # POST /trips.json
   def create
     @trip = Trip.new(trip_params)
 
@@ -36,7 +35,6 @@ class TripsController < ApplicationController
   end
 
   # PATCH/PUT /trips/1
-  # PATCH/PUT /trips/1.json
   def update
     respond_to do |format|
       if @trip.update(trip_params)
@@ -61,9 +59,9 @@ class TripsController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_trip
-      @trip = Trip.find(params[:id])
-    end
+    # def set_trip
+    #   @trip = Trip.find(params[:id])
+    # end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def trip_params
