@@ -17,7 +17,7 @@ class TripsController < ApplicationController
 
   def results
     @park_name = params[:park_name]
-    results = Typhoeus.get("http://api.amp.active.com/camping/campgrounds/?pname=#{@park_name}&api_key=#{ENV['API_KEY']}", followlocation: true)
+    results = Typhoeus.get("http://api.amp.active.com/camping/campgrounds/?pname=#{@park_name}&api_key=#{ENV['API_KEY']}")
     campgrounds_results = Hash.from_xml(results.body)
     # raise campgrounds_results.to_s
     # binding.pry
