@@ -9,25 +9,31 @@ class TripsController < ApplicationController
   def show
     @trip = Trip.find params[:id]
   end
-
-  # GET /trips/new
-  def new
-    @trip = Trip.new
-  end
-
+  
   def results
     @park_name = params[:park_name]
     results = Typhoeus.get("http://api.amp.active.com/camping/campgrounds/?pname=#{@park_name}&api_key=#{ENV['API_KEY']}")
+                          # http://api.amp.active.com/camping/campgrounds/?pname=yosemite&api_key=
     campgrounds_results = Hash.from_xml(results.body)
     # raise campgrounds_results.to_s
     # binding.pry
     # campgrounds_results['resultset']['result'][0]['facilityName']
     @campgrounds = campgrounds_results['resultset']['result'].map do |facility|
       #[facility['facilityName'].titleize, facility['contractID']]
-      {name: facility['facilityName'].titleize, id: facility['contractID']}
+      {name: facility['facilityName'].titleize, facility_id: facility['facilityID'],contract_id: facility['contractID']}
+      # {facility_id: facility['facilityID'], contract_id: facility['contractID']}
     end
+  end
 
-
+  #GET /trips/new
+  def new
+    @trip = Trip.new
+    @contract_id = params[:contract_id]
+    @facility_id = params[:facility_id]
+    results = Typhoeus.get("http://api.amp.active.com/camping/campground/details?contractCode=#{@contract_id}&parkId=#{@facility_id}&api_key=#{ENV['API_KEY']}")
+    park_details = Hash.from_xml(results.body)
+    # raise park_details.to_s
+    # binding.pry
   end
 
   # POST /trips
