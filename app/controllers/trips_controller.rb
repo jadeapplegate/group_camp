@@ -15,6 +15,21 @@ class TripsController < ApplicationController
     @trip = Trip.new
   end
 
+  def results
+    @park_name = params[:park_name]
+    results = Typhoeus.get("http://api.amp.active.com/camping/campgrounds/?pname=#{@park_name}&api_key=#{ENV['API_KEY']}", followlocation: true)
+    campgrounds_results = Hash.from_xml(results.body)
+    # raise campgrounds_results.to_s
+    # binding.pry
+    # campgrounds_results['resultset']['result'][0]['facilityName']
+    campgrounds = campgrounds_results['resultset']['result'].map do |facility|
+      #[facility['facilityName'].titleize, facility['contractID']]
+      {name: facility['facilityName'].titleize, code: facility['contractID']}
+    end
+
+
+  end
+
   # POST /trips
   def create
     @trip = Trip.new(trip_params)
