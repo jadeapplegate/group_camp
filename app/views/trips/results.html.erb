@@ -2,6 +2,13 @@
 
  <%= @park_name %>
 
+ <% @campgrounds.each do |campground| %>
+	<div><%= link_to campground[:name], new_trip_path(campground) %></div>
+ <%	end %>
+
+
+<!-- to pass params to a url, add the hash or array to the url helper method -->
+
 <!-- <ul>
 	<%# if @trips %>
 		<%# @trips.each do |trip|%>

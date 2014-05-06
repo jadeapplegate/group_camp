@@ -22,9 +22,9 @@ class TripsController < ApplicationController
     # raise campgrounds_results.to_s
     # binding.pry
     # campgrounds_results['resultset']['result'][0]['facilityName']
-    campgrounds = campgrounds_results['resultset']['result'].map do |facility|
+    @campgrounds = campgrounds_results['resultset']['result'].map do |facility|
       #[facility['facilityName'].titleize, facility['contractID']]
-      {name: facility['facilityName'].titleize, code: facility['contractID']}
+      {name: facility['facilityName'].titleize, id: facility['contractID']}
     end
 
 
