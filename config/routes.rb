@@ -34,7 +34,7 @@ GroupCamp::Application.routes.draw do
 #         users POST   /users(.:format)         users#create
 #  trips_search GET    /trips/search(.:format)  trips#search
 # trips_results GET    /trips/results(.:format) trips#results
-#         trips POST   /trips(.:format)         trips#create
+#         trips POST   /trips(.:format)         trips#create`
 #      new_trip GET    /trips/new(.:format)     trips#new
 #          trip GET    /trips/:id(.:format)     trips#show
 #               PATCH  /trips/:id(.:format)     trips#update
