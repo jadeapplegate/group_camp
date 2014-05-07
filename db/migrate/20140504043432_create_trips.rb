@@ -5,7 +5,6 @@ class CreateTrips < ActiveRecord::Migration
       t.string :departure
       t.text :camp_info
       t.string :share_url
-
       t.timestamps
     end
   end

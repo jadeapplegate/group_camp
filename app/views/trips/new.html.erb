@@ -3,19 +3,50 @@
 <%= form_for(@trip) do |f| %>
  <div class="field">
     <%= f.label "Arrival Date" %><br>
-    <%= f.text_field :arrival %>
+    <%= f.text_field :arrival, placeholder: "ex: 07/03/2014" %>
   </div>
   <div class="field">
     <%= f.label "Departure Date" %><br>
-    <%= f.text_field :departure %>
+    <%= f.text_field :departure, placeholder: "ex: 07/10/2014"  %>
   </div>
+   <div class="field">
+    <%= f.label "Trip Name" %><br>
+    <%= f.text_field :name, placeholder: "ex: Yosemite Trip" %>
+  </div>
+  <div class="field">
+    <%= f.label "Trip Description" %><br>
+    <%= f.text_field :description, placeholder: "ex: Fourth of July" %>
+  </div>
+
+	<%= f.hidden_field  :detail_description, value: @description  %>
+	<%= f.hidden_field  :driving_direction, value: @driving_direction %>
+	<%= f.hidden_field  :important_info, value: @important_info %>
+	<%= f.hidden_field  :facilities_description, value: @facilities_description %>
+	<%= f.hidden_field  :recreation_description, value: @recreation_description%>
+	<%= f.hidden_field  :info_link, value: @info_link %>
+	<%= f.hidden_field  :contact_number, value: @contact_number %>
+	<%= f.hidden_field  :photos, value: @photos %>
+	<%= f.hidden_field  :amenities, value: @amenities %>
+
+
+
   <div class="actions">
     <%= f.submit %>
 <% end %>
 
-<%= @description %>
-<%= @driving_direction %>
+<div>
+	<ul>
+		<li>Description: <%= @description %></li>
+		<li>Driving Directions: <%= @driving_direction %></li>
+		<li>Important Information: <%= @important_info %></li>
+		<li>Recreation Description: <%= @recreation_description %> </li>
+		<li>Facilities Description: <%= @facilities_description %></li>
+		<li>For More Information: <%= link_to @info_link, @info_link %></li>
+		<li>Contact Number: <%= @contact_number %></li>
+	</ul>
+</div>
 
+<!-- www.reserveamerica.com/photoresult -->
 
 <%#= render 'form' %>
 
