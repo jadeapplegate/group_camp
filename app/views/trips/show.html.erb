@@ -27,10 +27,16 @@
   <%= @trip.description %>
 </p>
 
+<p>
+	<% @trip.amenities_array.each do |amenity| %>
+	<%= amenity %>,
 
+	<% end %>
+</p>
 <! trip.amenities, trip.contact_number
 
-<!-- <p>
+<!-- 
+	<p>
   <strong>Campground Information:</strong>
   <%#= @trip.arrival %>
 </p> -->

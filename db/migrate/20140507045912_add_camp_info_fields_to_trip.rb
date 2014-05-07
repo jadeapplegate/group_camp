@@ -7,9 +7,9 @@ class AddCampInfoFieldsToTrip < ActiveRecord::Migration
      add_column :trips, :recreation_description, :text
      add_column :trips, :info_link, :string
      add_column :trips, :contact_number, :string
-     add_column :trips, :photos, :string
-     add_column :trips, :amenities, :string
-     remove_column :trips, :camp_info
+     add_column :trips, :photos, :text
+     add_column :trips, :amenities, :text
+     remove_column :trips, :camp_info, :text
   end
 end
 

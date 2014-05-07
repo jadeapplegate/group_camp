@@ -37,8 +37,8 @@ ActiveRecord::Schema.define(version: 20140507045912) do
     t.text     "recreation_description"
     t.string   "info_link"
     t.string   "contact_number"
-    t.string   "photos"
-    t.string   "amenities"
+    t.text     "photos"
+    t.text     "amenities"
   end
 
   create_table "users", force: true do |t|

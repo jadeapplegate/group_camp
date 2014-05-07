@@ -7,8 +7,7 @@ class TripsController < ApplicationController
 
   # GET /trips/1
   def show
-    @trip = Trip.find params[:id]
-
+    @trip = Trip.find_by_share_url params[:share_url]
   end
   
   def results
@@ -42,9 +41,10 @@ class TripsController < ApplicationController
   # POST /trips
   def create
     @trip = Trip.new trip_params
+    @trip.share_url = SecureRandom.urlsafe_base64(16)
     respond_to do |format|
       if @trip.save
-        format.html { redirect_to @trip, notice: 'Trip was successfully created.' }
+        format.html { redirect_to trip_url(@trip.share_url), notice: 'Trip was successfully created.' }
       else
         format.html { render action: 'new' }
       end
@@ -75,6 +75,6 @@ class TripsController < ApplicationController
   private
     # Never trust parameters from the scary internet, only allow the white list through.
     def trip_params
-      params.require(:trip).permit(:arrival, :departure, :camp_info, :share_url, :name, :description)
+      params.require(:trip).permit(:arrival, :departure, :share_url, :name, :description, :detail_description, :driving_direction, :important_info, :facilities_description, :recreation_description, :info_link, :contact_number, :photos, :amenities)
     end
 end
