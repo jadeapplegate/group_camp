@@ -10,9 +10,7 @@
 <p>
   <strong>Arrival Date:</strong>
   <%= @trip.arrival %>
-</p>
 
-<p>
   <strong>Departure Date:</strong>
   <%= @trip.departure %>
 </p>
@@ -20,36 +18,59 @@
 <p>
   <strong>Name:</strong>
   <%= @trip.name %>
-</p>
 
-<p>
   <strong>Description:</strong>
   <%= @trip.description %>
 </p>
 
 <p>
-	<% @trip.amenities_array.each do |amenity| %>
-	<%= amenity %>,
-
-	<% end %>
-</p>
-<! trip.amenities, trip.contact_number
-
-<!-- 
-	<p>
-  <strong>Campground Information:</strong>
-  <%#= @trip.arrival %>
-</p> -->
-
-
-<!-- <p>
-  <strong>Camp info:</strong>
-  <%#= @trip.camp_info %>
+  <strong>Campground Description:</strong>
+  <%= @trip.detail_description %>
 </p>
 
 <p>
-  <strong>Share url:</strong>
-  <%#= @trip.share_url %>
+  <strong>Driving Directions:</strong>
+  <%= @trip.driving_direction %>
 </p>
+
+<p>
+  <strong>Campground Amenities:</strong>
+  <% @trip.amenities_array.each do |amenity| %>
+  <%= amenity %>,
+  <% end %>
+</p>
+<p>
+  <strong>Facilities:</strong>
+  <%= @trip.facilities_description %>
+</p>
+
+<p>
+  <strong>Recreation Activities:</strong>
+  <%= @trip.recreation_description %>
+</p>
+
+<p>
+  <strong>Important Information:</strong>
+  <%= @trip.important_info %>
+</p>
+
+<p>
+  <strong>Contact Number:</strong>
+  <%= @trip.contact_number%>
+
+
+  <strong>For More Information:</strong>
+  <%= link_to @trip.info_link %>
+</p>
+ 
+<p>
+  <strong>Share this page with your guests:</strong>
+  <%= link_to @trip.share_url %>
+</p>
+
+ 
+
+
+
 
 
