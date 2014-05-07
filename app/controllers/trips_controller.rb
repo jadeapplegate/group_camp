@@ -42,26 +42,25 @@ class TripsController < ApplicationController
   def create
     @trip = Trip.new trip_params
     @trip.share_url = SecureRandom.urlsafe_base64(16)
-    respond_to do |format|
       if @trip.save
-        format.html { redirect_to trip_url(@trip.share_url), notice: 'Trip was successfully created.' }
+        redirect_to trip_url(@trip.share_url)
       else
-        format.html { render action: 'new' }
+      error_messages = @trip.errors.messages.values.flatten
+      flash.now[:errors] = error_messages
+      render action: "new"
       end
-    end
   end
 
   # PATCH/PUT /trips/1
-  def update
-    @trip = Trip.find params[:id]
-    respond_to do |format|
-      if @trip.update(trip_params)
-        format.html { redirect_to @trip, notice: 'Trip was successfully updated.' }
-      else
-        format.html { render action: 'edit' }
-      end
-    end
-  end
+  # def update
+  #   @trip = Trip.find params[:id]
+  #   respond_to do |format|
+  #     if @trip.update(@trip_params)
+  #       redirect_to trip_url(@trip.share_url)
+  #     else
+  #       format.html { render action: 'edit' }
+  #     end
+  # end
 
   # DELETE /trips/1
   def destroy

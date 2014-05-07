@@ -1,4 +1,10 @@
 class Trip < ActiveRecord::Base
+  validates :arrival, presence: true
+  validates :departure, presence: true
+  validates :name, presence: true
+  validates :description, presence: true
+  # validates :share_url, presence: true, uniqueness: true
+
   serialize :amenities
   serialize :photos
 
@@ -9,5 +15,5 @@ class Trip < ActiveRecord::Base
   def amenities_array
     JSON.parse amenities
   end
-  
+
 end
