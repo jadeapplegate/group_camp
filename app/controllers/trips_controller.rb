@@ -9,6 +9,10 @@ class TripsController < ApplicationController
   def show
     @trip = Trip.find_by_share_url params[:share_url]
   end
+
+  def search
+    @user = current_user
+  end
   
   def results
     @park_name = params[:park_name]
