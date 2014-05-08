@@ -11,7 +11,7 @@ class Trip < ActiveRecord::Base
   serialize :amenities
   serialize :photos
 
-  # before_save: 
+  before_save :fix_ampersand
 
   def photos_array
     JSON.parse photos
@@ -21,4 +21,18 @@ class Trip < ActiveRecord::Base
     JSON.parse amenities
   end
 
+  private
+    def fix_ampersand
+      self.class
+    end
+end
+
+
+class Topic < ActiveRecord::Base
+  before_destroy :delete_parents
+
+  private
+    def delete_parents
+      self.class.delete_all "parent_id = #{id}"
+    end
 end

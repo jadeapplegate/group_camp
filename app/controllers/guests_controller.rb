@@ -13,11 +13,10 @@ class GuestsController < ApplicationController
 
     respond_to do |format|
       if @guest.save
-        format.html { redirect_to @guest, notice: 'Guest was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @guest }
+        share_url = Trip.find(@guest.trip_id).share_url
+        format.html { redirect_to trip_url(share_url), notice: 'Guest was successfully created.' }
       else
         format.html { render action: 'new' }
-        format.json { render json: @guest.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -30,6 +29,6 @@ class GuestsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def guest_params
-      params.require(:guest).permit(:name)
+      params.require(:guest).permit(:name, :trip_id)
     end
 end

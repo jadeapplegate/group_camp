@@ -7,9 +7,35 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+	<%= render "layouts/header" %>
 <%= "signed in as #{current_user.email}" if current_user %>
 <%= yield %>
 
 </body>
 </html>
+
+
+
+
+
+<!-- 
+<!DOCTYPE html>
+<html>
+	<head>
+	  <title>GroceryList</title>
+	  <%#= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+	  <%#= javascript_include_tag "application", "data-turbolinks-track" => true %>
+	  <%#= csrf_meta_tags %>
+	</head>
+	<body>
+		<div class="row" id="main">
+			<%#= render "header" %>
+		  <div class="col-lg-2 col-md-1 col-sm-1 col-xs-1"></div>
+		  <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" id="content">
+				<%#= yield %>
+			</div>
+	 	  <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3"></div>
+	 	</div>
+	</body>
+</html>
+ -->

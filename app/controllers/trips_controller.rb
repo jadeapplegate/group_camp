@@ -5,9 +5,11 @@ class TripsController < ApplicationController
     @trips = Trip.all
   end
 
-  # GET /trips/1
+  # GET /trips/:share_url
   def show
     @trip = Trip.find_by_share_url params[:share_url]
+    @guest = Guest.new
+    @guests = Guest.all
   end
 
   def search
