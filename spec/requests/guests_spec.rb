@@ -1,4 +1,4 @@
-require 'spec_helper'
+# require 'spec_helper'
 
 # describe "Guests" do
 #   describe "GET /guests" do

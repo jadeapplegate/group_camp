@@ -11,7 +11,7 @@ class Trip < ActiveRecord::Base
   serialize :amenities
   serialize :photos
 
-  before_save :fix_ampersand
+  # before_save :fix_ampersand
 
   def photos_array
     JSON.parse photos
@@ -21,10 +21,10 @@ class Trip < ActiveRecord::Base
     JSON.parse amenities
   end
 
-  private
-    def fix_ampersand
-      self.class
-    end
+#   private
+#     def fix_ampersand
+#       self.class
+#     end
 end
 
 

@@ -10,7 +10,6 @@ class GuestsController < ApplicationController
   # POST /guests.json
   def create
     @guest = Guest.new(guest_params)
-
     respond_to do |format|
       if @guest.save
         share_url = Trip.find(@guest.trip_id).share_url
