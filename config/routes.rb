@@ -22,9 +22,8 @@ GroupCamp::Application.routes.draw do
 
   resources :guests, only: [:create]
 
-
   # every action below is a method in the corresponding controller. Ony the GET actions will have views (index, show, new, edit)
-#        Prefix Verb   URI Pattern                 Controller#Action
+#  Prefix Verb   URI Pattern                 Controller#Action
 #          root GET    /                           home#index
 #      sessions POST   /sessions(.:format)         sessions#create
 #   new_session GET    /sessions/new(.:format)     sessions#new

@@ -63,7 +63,7 @@ class TripsController < ApplicationController
   #   respond_to do |format|
   #     if @trip.update(@trip_params)
   #       redirect_to trip_url(@trip.share_url)
-  #     else
+  #     else        
   #       format.html { render action: 'edit' }
   #     end
   # end

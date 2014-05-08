@@ -1,15 +1,15 @@
-# require 'spec_helper'
+require 'spec_helper'
 
-# describe "Trips" do
+describe "Trips" do
 
-#   # new_trip_path
-#   describe "GET new" do
-#     it "should be a 200 response" do
-#       get new_trip
-#       response.status.should be(200)
-#     end
-#   end
-# end
+  # new_trip_path
+  describe "GET new" do
+    it "should be a 200 response" do
+      get new_trip
+      response.status.should be(200)
+    end
+  end
+end
 
 
 # trips_search  GET    /trips/search(.:format)    trips#search

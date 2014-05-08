@@ -1,5 +1,13 @@
 require 'spec_helper'
 
 describe Guest do
-  pending "add some examples to (or delete) #{__FILE__}"
+
+   describe 'name' do
+    it 'should not be empty' do
+      user = FactoryGirl.build(:guest, name: nil)
+      user.should_not be_valid
+    end
+  end
+  
 end
+
