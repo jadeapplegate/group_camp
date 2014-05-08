@@ -11,6 +11,8 @@ class Trip < ActiveRecord::Base
   serialize :amenities
   serialize :photos
 
+  # before_save: 
+
   def photos_array
     JSON.parse photos
   end

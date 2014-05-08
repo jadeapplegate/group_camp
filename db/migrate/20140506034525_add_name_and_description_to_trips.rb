@@ -4,3 +4,6 @@ class AddNameAndDescriptionToTrips < ActiveRecord::Migration
     add_column :trips, :description, :string
   end
 end
+
+# add_column :trips, :user_id, :integer
+# add_column :trips, :references =
