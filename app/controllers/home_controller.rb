@@ -1,7 +1,7 @@
 class HomeController < ApplicationController
 
   def index
-    @user = current_user
+    @user = current_user || User.new
     @trips = @user ? @user.trips : []
   end
 

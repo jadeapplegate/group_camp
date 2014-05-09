@@ -9,7 +9,7 @@ class TripsController < ApplicationController
   def show
     @trip = Trip.find_by_share_url params[:share_url]
     @guest = Guest.new
-    @guests = @trip.guests     
+    @guests = @trip.guests 
     #@guests = Guest.find_by_trip_id @trip.id 
   end
 

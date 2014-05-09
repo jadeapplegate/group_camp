@@ -17,12 +17,19 @@ body {
 	background-color: #2b3e50;
 }
 
+.container {
+	margin-top: 30px;
+}
 .navbar.navbar-default {
 	background-color: #bf5a16;
+	height: 50px;
 }
 
 .navbar-brand {
 	background-color: #bf5a16;
+	font-family: 'Lobster', cursive;
+	font-size: 63px;
+	margin-top: 8px;
 }
 
 li {
@@ -53,4 +60,13 @@ ul {
 
 .guest_add_field {
 	margin-bottom: 4px;
+}
+.camping-image{
+	width:100%;
+	border-radius: 30px;
+	border:white solid 4px;	
+}
+
+.signup {
+	margin-bottom: 10px;
 }

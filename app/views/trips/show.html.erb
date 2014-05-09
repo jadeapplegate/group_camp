@@ -7,15 +7,13 @@
 <div class='col-md-9'>
 
 <h3 id="show_page_header">
-  <%= @trip.name %> - <%= @trip.description %>
+  <div class="right_margin"> <%= @trip.name %> - <%= @trip.description %>
+  </div>
 </h3>
 
 <br>
- <%= @trip.arrival %> <strong>Departure Date:</strong> <%= @trip.departure %></p>
+  <div class="right_margin"><strong>Arrival Date:</strong> <%= @trip.arrival %></div> <strong>Departure Date:</strong> <%= @trip.departure %></p>
 
-<p>
-  <strong>Contact Number:</strong>
-  <%= @trip.contact_number%>
 
   <strong>For More Information:</strong>
   <%= link_to @trip.info_link %>
@@ -56,7 +54,7 @@
 <div class="col-md-3">
 <p>
   <strong>Share this page with your guests:</strong>
-  <%= link_to request.url, @trip.share_url %>
+  <small><%= link_to request.url, @trip.share_url %></small>
 </p>
 <br>
 
@@ -75,7 +73,7 @@
     <% end %>
 
     <div class="guest_add_field">
-      <%= f.text_field :name, placeholder: "name", class: "rounded" %>
+      <%= f.text_field :name, placeholder: "name", class: "rounded", autofocus: "autofocus"%>
       <%= f.hidden_field :trip_id, value: @trip.id %>
     </div>
 

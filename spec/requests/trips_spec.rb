@@ -1,24 +1,24 @@
-require 'spec_helper'
+# require 'spec_helper'
 
-describe "Trips" do
+# describe "Trips" do
 
-  # trips_search_path
-  describe "GET trips/search" do
-    it "should be a 200 response" do
-      get "/trips/search"
-      response.status.should be(200)
-    end
-  end
+#   # trips_search_path
+#   describe "GET trips/search" do
+#     it "should be a 200 response" do
+#       get "/trips/search"
+#       response.status.should be(200)
+#     end
+#   end
 
-  # trips_results_path
-  describe "GET trips/results" do
-    it "should be a 200 response" do
-      get "/trips/results"
-      response.status.should be(200)
-    end
-  end
+#   # trips_results_path
+#   describe "GET trips/results" do
+#     it "should be a 200 response" do
+#       get "/trips/results"
+#       response.status.should be(200)
+#     end
+#   end
   
-end
+# end
 
 
 

@@ -1,8 +1,8 @@
 <div class="row">
-  <strong class='col-md-12'>Create your trip:</strong>
+  <class='col-md-12'>
   <%= form_for(@trip) do |f| %>
  <div class="col-md-2">
-    <%= f.text_field :arrival, placeholder: "Arrival Date", class: "rounded"  %>
+    <%= f.text_field :arrival, placeholder: "Arrival Date", class: "rounded", autofocus: "autofocus"  %>
   </div>
   <div class="col-md-2">
     <%= f.text_field :departure, placeholder: "Departure Date", class: "rounded"  %>
@@ -33,18 +33,18 @@
 
 <div style="margin-top:30px;">
 	<ul>
-		<li>Campground Description: <%= scrub @description %></li>
-		<li>Driving Directions: <%= scrub @driving_direction %></li>
-    <li>Amenities: 
+		<li><strong>Campground Description:</strong> <%= scrub @description %></li>
+		<li><strong>Driving Directions:</strong> <%= scrub @driving_direction %></li>
+    <li><strong>Amenities: </strong>
       <% @amenities.each do |amenity| %>
       <%= scrub amenity %>,
       <% end %>
     </li>
-		<li>Important Information: <%= scrub @important_info %></li>
-		<li>Recreation Description: <%= scrub @recreation_description %> </li>
-		<li>Facilities Description: <%= scrub @facilities_description %></li>
-		<li>For More Information: <%= link_to @info_link, @info_link %></li>
-		<li>Contact Number: <%= @contact_number %></li>
+		<li><strong>Important Information:</strong><%= scrub @important_info %></li>
+		<li><strong>Recreation Description:</strong><%= scrub @recreation_description %> </li>
+		<li><strong>Facilities Description:</strong><%= scrub @facilities_description %></li>
+		<li><strong>For More Information:</strong><%= link_to @info_link, @info_link %></li>
+
 	</ul>
 </div>
 
