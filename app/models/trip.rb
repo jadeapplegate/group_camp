@@ -26,13 +26,3 @@ class Trip < ActiveRecord::Base
 #       self.class
 #     end
 end
-
-
-class Topic < ActiveRecord::Base
-  before_destroy :delete_parents
-
-  private
-    def delete_parents
-      self.class.delete_all "parent_id = #{id}"
-    end
-end

@@ -9,7 +9,8 @@ class TripsController < ApplicationController
   def show
     @trip = Trip.find_by_share_url params[:share_url]
     @guest = Guest.new
-    @guests = Guest.all
+    @guests = @trip.guests     
+    #@guests = Guest.find_by_trip_id @trip.id 
   end
 
   def search
@@ -38,16 +39,20 @@ class TripsController < ApplicationController
     @important_info = @park_details['detailDescription']['importantInformation']
     @facilities_description = @park_details['detailDescription']['facilitiesDescription']
     @recreation_description = @park_details['detailDescription']['recreationDescription']
-    @info_link = @park_details['detailDescription']['informationLink'][0]['link']
+    links = @park_details['detailDescription']['informationLink']
+    @info_link =  links.is_a?(Array) ? links[0]['link'] : nil 
     @contact_number = @park_details['detailDescription']['contact'][0]['number']
-    @photos = @park_details['detailDescription']['photo'].map {|photo| 'http://www.reserveamerica.com' + photo['realUrl']}
-    @amenities = @park_details['detailDescription']['amenity'].map {|amenity| amenity['name']} 
+    photos = @park_details['detailDescription']['photo']
+    @photos = photos.is_a?(Array) ? photos.map {|photo| 'http://www.reserveamerica.com' + photo['realUrl']} : nil
+    amenities = @park_details['detailDescription']['amenity']
+    @amenities = amenities.is_a?(Array) ? amenities.map {|amenity| amenity['name']} : nil 
   end
 
   # POST /trips
   def create
     @trip = Trip.new trip_params
     @trip.share_url = SecureRandom.urlsafe_base64(16)
+    @trip.user_id = current_user.id
       if @trip.save
         redirect_to trip_url(@trip.share_url)
       else

@@ -3,6 +3,9 @@ if not signed in, show index page with signin/create account
 if signed in, display all of a users's trips here -->
 
 <h1></h1>
+<% @trips.each do |trip| %>
+	<div><%= link_to trip.name, trip_path(trip.share_url) %></div>
+<% end %>
 
 
 
