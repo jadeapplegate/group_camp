@@ -4,97 +4,92 @@
 			ADD GUEST NAME COLUMN on RIGHT -->
 
 
+<div class='col-md-9'>
 
+<h3 id="show_page_header">
+  <%= @trip.name %> - <%= @trip.description %>
+</h3>
 
-<p>
-   <strong>Arrival Date:</strong>
-  <%= @trip.arrival %>
-
-  <strong>Departure Date:</strong>
-  <%= @trip.departure %>
-</p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @trip.name %>
-
-  <strong>Description:</strong>
-  <%= @trip.description %>
-</p>
-
-<p>
-  <strong>Campground Description:</strong>
-  <%= @trip.detail_description %>
-</p>
-
-<p>
-  <strong>Driving Directions:</strong>
-  <%= @trip.driving_direction %>
-</p>
-
-<p>
-  <strong>Campground Amenities:</strong>
-  <% @trip.amenities_array.each do |amenity| %>
-  <%= amenity %>,
-  <% end %>
-</p>
-<p>
-  <strong>Facilities:</strong>
-  <%= @trip.facilities_description %>
-</p>
-
-<p>
-  <strong>Recreation Activities:</strong>
-  <%= @trip.recreation_description %>
-</p>
-
-<p>
-  <strong>Important Information:</strong>
-  <%= @trip.important_info %>
-</p>
+<br>
+ <%= @trip.arrival %> <strong>Departure Date:</strong> <%= @trip.departure %></p>
 
 <p>
   <strong>Contact Number:</strong>
   <%= @trip.contact_number%>
 
-
   <strong>For More Information:</strong>
   <%= link_to @trip.info_link %>
 </p>
- 
-<div>
+
+<p>
+  <strong>Campground Description:</strong>
+  <%= scrub @trip.detail_description %>
+</p>
+
+<p>
+  <strong>Driving Directions:</strong>
+  <%= scrub @trip.driving_direction %>
+</p>
+
+<p>
+  <strong>Campground Amenities:</strong>
+  <% @trip.amenities_array.each do |amenity| %>
+  <%= scrub amenity %>,
+  <% end %>
+</p>
+<p>
+  <strong>Facilities:</strong>
+  <%= scrub @trip.facilities_description %>
+</p>
+
+<p>
+  <strong>Recreation Activities:</strong>
+  <%= scrub @trip.recreation_description %>
+</p>
+
+<p>
+  <strong>Important Information:</strong>
+  <%= scrub @trip.important_info %>
+</p>
+</div>
+
+<div class="col-md-3">
 <p>
   <strong>Share this page with your guests:</strong>
   <%= link_to request.url, @trip.share_url %>
 </p>
+<br>
 
-<% @guests.each do |guest| %>
-  <%= guest.name %>
-<% end %>
+<strong>Join this trip:</strong>
+  <%= form_for(@guest) do |f| %>
+    <% if @guest.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@guest.errors.count, "error") %> prohibited this guest from being saved:</h2>
 
-<%= form_for(@guest) do |f| %>
-  <% if @guest.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@guest.errors.count, "error") %> prohibited this guest from being saved:</h2>
+        <ul>
+        <% @guest.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
 
-      <ul>
-      <% @guest.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+    <div class="guest_add_field">
+      <%= f.text_field :name, placeholder: "name", class: "rounded" %>
+      <%= f.hidden_field :trip_id, value: @trip.id %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit class: "btn btn-primary btn-sm rounded" %>
     </div>
   <% end %>
+  <div class="guestlist">
+    <strong>Attendees:</strong>
+    <% @guests.each do |guest| %>
+    <div>
+      <%= guest.name %>
+    </div>
+    <% end %>
+  </div>
 
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-    <%= f.hidden_field :trip_id, value: @trip.id %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
 </div>
-<% end %>
-
-
-

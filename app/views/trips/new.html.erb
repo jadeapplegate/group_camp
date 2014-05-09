@@ -1,23 +1,19 @@
-<h1></h1>
-  <div>
-    <strong>Create your trip:</strong>
-<%= form_for(@trip) do |f| %>
- <div class="field">
-    <%= f.label "Arrival Date" %><br>
-    <%= f.text_field :arrival, placeholder: "ex: 07/03/2014" %>
+<div class="row">
+  <strong class='col-md-12'>Create your trip:</strong>
+  <%= form_for(@trip) do |f| %>
+ <div class="col-md-2">
+    <%= f.text_field :arrival, placeholder: "Arrival Date", class: "rounded"  %>
   </div>
-  <div class="field">
-    <%= f.label "Departure Date" %><br>
-    <%= f.text_field :departure, placeholder: "ex: 07/10/2014"  %>
+  <div class="col-md-2">
+    <%= f.text_field :departure, placeholder: "Departure Date", class: "rounded"  %>
   </div>
-   <div class="field">
-    <%= f.label "Trip Name" %><br>
-    <%= f.text_field :name, placeholder: "ex: Yosemite Trip" %>
+   <div class="col-md-2">
+    <%= f.text_field :name, placeholder: "Trip Name", class: "rounded"  %>
   </div>
-  <div class="field">
-    <%= f.label "Trip Description" %><br>
-    <%= f.text_field :description, placeholder: "ex: Fourth of July" %>
+  <div class="col-md-2">
+    <%= f.text_field :description, placeholder: "Trip Description", class: "rounded" %>
   </div>
+
 
 	<%= f.hidden_field  :detail_description, value: @description  %>
 	<%= f.hidden_field  :driving_direction, value: @driving_direction %>
@@ -29,17 +25,24 @@
 	<%= f.hidden_field  :photos, value: @photos %>
 	<%= f.hidden_field  :amenities, value: @amenities %>
 
-  <div class="actions">
-    <%= f.submit %>
-<% end %>
+  <div class="actions col-md-4">
+    <%= f.submit class: "btn btn-primary btn-sm rounded"  %>
+  </div>
+  <% end %>
+</div>
 
-<div>
+<div style="margin-top:30px;">
 	<ul>
-		<li>Campground Description: <%= @detail_description %></li>
-		<li>Driving Directions: <%= @driving_direction %></li>
-		<li>Important Information: <%= @important_info %></li>
-		<li>Recreation Description: <%= @recreation_description %> </li>
-		<li>Facilities Description: <%= @facilities_description %></li>
+		<li>Campground Description: <%= scrub @description %></li>
+		<li>Driving Directions: <%= scrub @driving_direction %></li>
+    <li>Amenities: 
+      <% @amenities.each do |amenity| %>
+      <%= scrub amenity %>,
+      <% end %>
+    </li>
+		<li>Important Information: <%= scrub @important_info %></li>
+		<li>Recreation Description: <%= scrub @recreation_description %> </li>
+		<li>Facilities Description: <%= scrub @facilities_description %></li>
 		<li>For More Information: <%= link_to @info_link, @info_link %></li>
 		<li>Contact Number: <%= @contact_number %></li>
 	</ul>

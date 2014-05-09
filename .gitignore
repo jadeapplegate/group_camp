@@ -15,4 +15,4 @@
 /log/*.log
 /tmp
 .env
-.notes.txt
+notes.txt

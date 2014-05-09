@@ -18,11 +18,17 @@ class TripsController < ApplicationController
   end
   
   def results
-    @park_name = params[:park_name]
+    @park_name = params[:park_name].gsub(" ", "+")
     results = Typhoeus.get("http://api.amp.active.com/camping/campgrounds/?pname=#{@park_name}&api_key=#{ENV['API_KEY']}")
     campgrounds_results = Hash.from_xml(results.body)
-    @campgrounds = campgrounds_results['resultset']['result'].map do |facility|
-      {name: facility['facilityName'].titleize, facility_id: facility['facilityID'], contract_id: facility['contractID']}
+
+    campground_data = campgrounds_results['resultset']['result']
+    if campground_data.is_a?(Array)
+      @campgrounds = campground_data.map do |facility|
+        {name: facility['facilityName'].titleize, facility_id: facility['facilityID'], contract_id: facility['contractID']}
+      end
+    else
+      @campgrounds = [{name: campground_data['facilityName'].titleize, facility_id: campground_data['facilityID'], contract_id: campground_data['contractID']}]
     end
   end
 

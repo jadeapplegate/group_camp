@@ -1,11 +1,11 @@
 
 	<div>
-		<strong> Select the specific campground:</strong>
+		<strong> Select the specific campground you've reserved at <%= @park_name %>:</strong>
 	</div>
-
- <%= @park_name %>
-
+<br>
+<div class="results">
  <% @campgrounds.each do |campground| %>
 	<div><%= link_to campground[:name], new_trip_path(campground) %></div>
  <%	end %>
+</div>
 
