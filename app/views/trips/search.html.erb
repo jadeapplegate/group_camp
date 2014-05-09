@@ -1,5 +1,4 @@
-<h1>Trip Search Page</h1>
-<h2>Your Trips Are:
+
 <% @user.trips.each do |trip| %>
 	<%= trip %>
 	<% end %>
@@ -7,7 +6,7 @@
 </h2>
 
 	<div>
-		<strong> Enter the National/State Park Name Where You Made Your Reservation:</I>
+		<strong> Enter the National/State Park Name Where You Made Your Reservation:</strong>
 				<form method="get" action="/trips/results">
 				<br>
 				<input class="search_box" type="text" placeholder="ex: Yosemite" name="park_name">

@@ -19,7 +19,6 @@ GroupCamp::Application.routes.draw do
   delete 'trips/:id', to: 'trips#destroy'        
   get 'trips/:share_url', to: 'trips#show', as: "trip"
 
-
   resources :guests, only: [:create]
 
   # every action below is a method in the corresponding controller. Ony the GET actions will have views (index, show, new, edit)
