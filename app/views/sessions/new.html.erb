@@ -1,17 +1,11 @@
-
-
-
 <div class="row">
   <div class="col-md-6 col-sm-6 col-md-offset-3 col-sm-offset-3">
     <%= form_for(:session, url: sessions_path) do |f| %>
-
       <%= f.text_field :email, placeholder: "Email", class: "rounded", autofocus: "autofocus"  %>
-
       <%= f.password_field :password, placeholder: "Password", class: "rounded"  %>
-
       <%= f.submit "Sign in", class: "btn btn-large btn-primary btn-sm rounded" %>
     <% end %>
-<br>
+	<br>
     <p>New user? <%= link_to "Sign up now!", signup_path %></p>
   </div>
 </div>

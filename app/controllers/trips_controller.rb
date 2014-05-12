@@ -1,10 +1,5 @@
 class TripsController < ApplicationController
 
-  # GET /trips
-  def index
-    @trips = Trip.all
-  end
-
   # GET /trips/:share_url
   def show
     @trip = Trip.find_by_share_url params[:share_url]
@@ -13,15 +8,16 @@ class TripsController < ApplicationController
     #@guests = Guest.find_by_trip_id @trip.id 
   end
 
+  #GET /trips/search
   def search
     @user = current_user
   end
   
+  #GET /trips/results
   def results
     @park_name = params[:park_name].gsub(" ", "+")
     results = Typhoeus.get("http://api.amp.active.com/camping/campgrounds/?pname=#{@park_name}&api_key=#{ENV['API_KEY']}")
     campgrounds_results = Hash.from_xml(results.body)
-
     campground_data = campgrounds_results['resultset']['result']
     if campground_data.is_a?(Array)
       @campgrounds = campground_data.map do |facility|
@@ -33,7 +29,6 @@ class TripsController < ApplicationController
   end
 
   #GET /trips/new
-  # change park_details to camp_info
   def new
     @trip = Trip.new
     @contract_id = params[:contract_id]
@@ -68,17 +63,6 @@ class TripsController < ApplicationController
       end
   end
 
-  # PATCH/PUT /trips/1
-  # def update
-  #   @trip = Trip.find params[:id]
-  #   respond_to do |format|
-  #     if @trip.update(@trip_params)
-  #       redirect_to trip_url(@trip.share_url)
-  #     else        
-  #       format.html { render action: 'edit' }
-  #     end
-  # end
-
   # DELETE /trips/1
   def destroy
     @trip = Trip.find params[:id]
@@ -89,8 +73,8 @@ class TripsController < ApplicationController
   end
 
   private
-    # Never trust parameters from the scary internet, only allow the white list through.
     def trip_params
       params.require(:trip).permit(:arrival, :departure, :share_url, :name, :description, :detail_description, :driving_direction, :important_info, :facilities_description, :recreation_description, :info_link, :contact_number, :photos, :amenities)
     end
+
 end

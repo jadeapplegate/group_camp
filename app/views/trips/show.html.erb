@@ -1,9 +1,3 @@
-<!-- <p id="notice"><%#= notice %></p> -->
-
-<!-- ADD TRIP NAME, ARRIVAL, DEPARTURE DATES AT TOP OF PARK DETAILS
-			ADD GUEST NAME COLUMN on RIGHT -->
-
-
 <div class='col-md-9'>
 
 <h3 id="show_page_header">
@@ -13,7 +7,6 @@
 
 <br>
   <div class="right_margin"><strong>Arrival Date:</strong> <%= @trip.arrival %></div> <strong>Departure Date:</strong> <%= @trip.departure %></p>
-
 
   <strong>For More Information:</strong>
   <%= link_to @trip.info_link %>
@@ -35,6 +28,7 @@
   <%= scrub amenity %>,
   <% end %>
 </p>
+
 <p>
   <strong>Facilities:</strong>
   <%= scrub @trip.facilities_description %>
@@ -63,7 +57,6 @@
     <% if @guest.errors.any? %>
       <div id="error_explanation">
         <h2><%= pluralize(@guest.errors.count, "error") %> prohibited this guest from being saved:</h2>
-
         <ul>
         <% @guest.errors.full_messages.each do |msg| %>
           <li><%= msg %></li>

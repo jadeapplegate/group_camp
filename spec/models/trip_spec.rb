@@ -31,7 +31,3 @@ describe 'description' do
 
 end
 
-  # validates :arrival, presence: true
-  # validates :departure, presence: true
-  # validates :name, presence: true
-  # validates :description, presence: true

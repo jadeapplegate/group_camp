@@ -5,12 +5,6 @@ FactoryGirl.define do
     "jackie#{n}@jackie.com"
   end
 
-  # factory :recipe do
-  #   name "Chicken"
-  #   course "Dinner"
-  #   user
-  # end
-
   factory :user do
     name "Jackie"
     email 

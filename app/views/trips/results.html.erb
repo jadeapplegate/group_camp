@@ -1,14 +1,12 @@
-
-
-		<div class="row">
+<div class="row">
   <div class="col-md-6 col-sm-6 col-md-offset-3 col-sm-offset-3 results_margin">
 		<strong> Select the specific campground you've reserved at <%= @park_name %>:</strong>
 	</div>
 <br><br>
-<div class="results col-md-6 col-sm-6 col-md-offset-3 col-sm-offset-3">
- <% @campgrounds.each do |campground| %>
-	<div><%= link_to campground[:name], new_trip_path(campground) %></div>
- <%	end %>
-</div>
+	<div class="results col-md-6 col-sm-6 col-md-offset-3 col-sm-offset-3">
+ 	<% @campgrounds.each do |campground| %>
+		<div><%= link_to campground[:name], new_trip_path(campground) %></div>
+	 <%	end %>
+	</div>
 </div>
 

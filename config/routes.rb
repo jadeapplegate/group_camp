@@ -12,8 +12,6 @@ GroupCamp::Application.routes.draw do
 
   get 'trips/search', to: 'trips#search'
   get '/trips/results', to: 'trips#results'
-  # put 'trips/:share_url', to: 'trips#update' as...
-
   get 'trips/new', to: 'trips#new', as: "new_trip"
   post 'trips', to: 'trips#create', as: "trips"
   delete 'trips/:id', to: 'trips#destroy'        

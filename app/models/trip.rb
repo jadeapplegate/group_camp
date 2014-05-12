@@ -6,12 +6,9 @@ class Trip < ActiveRecord::Base
   validates :departure, presence: true
   validates :name, presence: true
   validates :description, presence: true
-  # validates :share_url, presence: true, uniqueness: true
 
   serialize :amenities
   serialize :photos
-
-  # before_save :fix_ampersand
 
   def photos_array
     JSON.parse photos
@@ -21,8 +18,4 @@ class Trip < ActiveRecord::Base
     JSON.parse amenities
   end
 
-#   private
-#     def fix_ampersand
-#       self.class
-#     end
 end
