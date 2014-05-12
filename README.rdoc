@@ -17,6 +17,6 @@ User:
    * user can search for campground name to get campground details, and use that information to createa new trip
    * user can share trip details with friends using a randomly generated url 
 
-   *  friends of user can view trip details using randomly generated url
+   * friends of user can view trip details using randomly generated url
    * friends can add themselves to the list of attendees for the trip.
 
