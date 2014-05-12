@@ -5,6 +5,8 @@ application up and running.
 
 Things you may want to cover:
 
+GroupCamp is an app that helps groups of friends organize camping trips. 
+
 * Ruby version
 
 * System dependencies
