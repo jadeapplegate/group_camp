@@ -4,13 +4,23 @@ class TripsController < ApplicationController
   def show
     @trip = Trip.find_by_share_url params[:share_url]
     @guest = Guest.new
-    @guests = @trip.guests 
-    #@guests = Guest.find_by_trip_id @trip.id 
+    #commented the below line out to make the indexsearch method work
+    #@guests = @trip.guests 
   end
 
-  #GET /trips/search
+  # GET /trips/search
   def search
     @user = current_user
+  end
+
+  def indexsearch
+    @trips = Trip.all
+
+    @search = SimpleSearch.new SimpleSearch.get_params(params)
+    if @search.valid?
+      @trips = @search.search_within Trip.all, :name
+
+    end
   end
   
   #GET /trips/results

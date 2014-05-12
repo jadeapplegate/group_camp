@@ -1,0 +1,19 @@
+<h1>Index Search Page</h1>
+
+<%= form_for(@search, url: search_trip_index_path, method: :get) do |f| %>
+    <div class="input group">
+        <%= f.text_field :q, class: "form-control", placeholder: "Search for your saved Trips" %>
+        <% if @search.errors.has_key?(:q) %>
+            <span class="help-block text-danger"><%= @search.errors[:q].first %></span>
+        <% end %>
+    </div>
+
+
+<% end %>
+<div class="results">
+     <%@trips.each do |trip| %>
+          <%=trip.name%>
+     <%end%>
+</div>
+
+
