@@ -1,30 +1,22 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+GroupCamp: An app to help organize and plan camping trips amongst groups of friends.
 
-Things you may want to cover:
+Using API from Active Access, pulling information from ReserveAmerica, which provides data on 97% of the US and Canada’s national and state parks.  
 
-GroupCamp is an app that helps groups of friends organize camping trips. 
+API Calls: 
+     1. Camping/campgrounds => by name, to get park ID
+     2. Camping/campground details => user park ID from first call to return park details
 
-* Ruby version
+User:
+   * user can make a new account
+   * user can sign in 
+   * user can sign out
 
-* System dependencies
+   * user can see all existing trips
+   * user can search for campground name to get campground details, and use that information to createa new trip
+   * user can share trip details with friends using a randomly generated url 
 
-* Configuration
+   *  friends of user can view trip details using randomly generated url
+   * friends can add themselves to the list of attendees for the trip.
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
