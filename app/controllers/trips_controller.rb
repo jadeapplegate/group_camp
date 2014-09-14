@@ -1,5 +1,7 @@
 class TripsController < ApplicationController
 
+  skip_before_filter :verify_authenticity_token, only: [:indexsearch]
+
   # GET /trips/:share_url
   def show
     @trip = Trip.find_by_share_url params[:share_url]
@@ -14,12 +16,13 @@ class TripsController < ApplicationController
   end
 
   def indexsearch
-    @trips = Trip.all
-
+    # @trips = Trip.all
     @search = SimpleSearch.new SimpleSearch.get_params(params)
+    @trips = Trip.none
     if @search.valid?
       @trips = @search.search_within Trip.all, :name
-
+    else
+      flash[:errors] = @search.errors.full_messages
     end
   end
   

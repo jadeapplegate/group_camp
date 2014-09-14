@@ -8,13 +8,14 @@
  * You're free to add application-wide styles to this file and they'll appear at the top of the
  * compiled file, but it's generally better to create a new file per style scope.
  *
- *= require bootstrap.min
  *= require_self
  *= require_tree .
  */
 
 body {
-	background-color: #2b3e50;
+	background-color: #9DBCBC !important;
+	margin-top: 40px !important;
+
 }
 
 .container {
@@ -22,14 +23,14 @@ body {
 }
 .navbar.navbar-default {
 	background-color: #bf5a16;
-	height: 50px;
+	height: 80px;
 }
 
 .navbar-brand {
 	background-color: #bf5a16;
 	font-family: 'Lobster', cursive;
-	font-size: 63px;
-	margin-top: 8px;
+	font-size: 90px !important;
+	margin-top: 10px;
 }
 
 li {
@@ -61,6 +62,7 @@ ul {
 .guest_add_field {
 	margin-bottom: 4px;
 }
+
 .camping-image{
 	width:100%;
 	border-radius: 30px;
@@ -69,4 +71,5 @@ ul {
 
 .signup {
 	margin-bottom: 10px;
+	font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
 }
